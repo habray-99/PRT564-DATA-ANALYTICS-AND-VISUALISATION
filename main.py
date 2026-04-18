@@ -3,6 +3,7 @@ import os
 
 root_folder = os.getcwd()
 dataset_folder = root_folder + "/dataset"
+dataframes = []
 
 for filename in os.listdir(dataset_folder):
     file_path = dataset_folder + "/" + filename
@@ -55,6 +56,8 @@ for filename in os.listdir(dataset_folder):
                     df_renamed[col_name] = pd.to_numeric(df.iloc[:, i+1], errors='coerce')
                 except:
                     pass
+            
+            dataframes.append(df_renamed)
 
             print(f"Finished retreiving data from {sheet}")
         
@@ -62,4 +65,28 @@ for filename in os.listdir(dataset_folder):
         print(f"closing file {filename}")
     except Exception as e:
         print(e)
-        print('file cannot be found')
+        print('Above mentioned error has occured')
+
+print(f"\nLoaded {len(dataframes)} sheets successfully!")
+
+
+print("\nCombining data from all sheets...")
+
+# Combine all dataframes (vertically stacking)
+final_df = pd.concat(dataframes, ignore_index=True)
+
+# Remove rows with missing dates
+final_df = final_df.dropna(subset=['date', 'year'])
+
+print(f"Combined data shape: {final_df.shape}")
+print(f"Date range: {final_df['date'].min()} to {final_df['date'].max()}")
+
+print(f"\nData loaded from:")
+for filename in os.listdir(dataset_folder):
+    file_data = final_df[final_df['source_file'] == filename]
+    sheets = file_data['sheet_name'].unique() if 'sheet_name' in file_data.columns else ['Data1']
+    print(f"  {filename}: {len(file_data)} rows from sheets {list(sheets)}")
+
+print(f"\nTotal columns available: {len(final_df.columns)}")
+print(f"First 5 rows:")
+print(final_df.head())
