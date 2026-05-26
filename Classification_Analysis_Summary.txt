@@ -4,7 +4,7 @@ CLASSIFICATION ANALYSIS SUMMARY
 
 DATA OVERVIEW:
 - Total observations: 175
-- Features: 15
+- Features: 12
 - Training set: 140 samples
 - Test set: 35 samples
 
@@ -19,18 +19,18 @@ Class Distribution:
 
 Best Performing Models:
               Model  Accuracy  F1-Score
-      Decision Tree  1.000000  1.000000
-      Random Forest  1.000000  1.000000
 Logistic Regression  0.914286  0.913306
+      Random Forest  0.800000  0.805227
+                SVM  0.771429  0.779295
 
-Recommended Model: Decision Tree
-  - Reasoning: Highest F1-Score (1.0000) balances precision and recall
-  - Cross-validation accuracy: 0.9829 ± 0.0140
+Recommended Model: Logistic Regression
+  - Reasoning: Highest F1-Score (0.9133) balances precision and recall
+  - Cross-validation accuracy: 0.8457 ± 0.0690
 
 Top 3 Important Features:
-  1. net_overseas_migration_au: 0.3876
-  2. migration_lag2: 0.1396
-  3. year_normalized: 0.0765
+  1. migration_lag2: 0.2011
+  2. migration_lag1: 0.1577
+  3. migration_change: 0.1466
 
 TASK 2: POPULATION GROWTH CLASSIFICATION
 ===========================================
@@ -42,18 +42,18 @@ Class Distribution:
 
 Best Performing Models:
               Model  Accuracy  F1-Score  ROC-AUC
-      Decision Tree  0.971429  0.971429 0.972222
-      Random Forest  0.971429  0.971429 1.000000
-Logistic Regression  0.914286  0.909091 0.990196
+      Random Forest  0.971429  0.971429 0.983660
+Logistic Regression  0.914286  0.909091 0.986928
+                SVM  0.885714  0.875000 0.970588
 
-Recommended Model: Decision Tree
-  - Reasoning: Highest F1-Score (0.9714) with strong ROC-AUC (0.9722)
-  - Cross-validation accuracy: 0.9486 ± 0.0420
+Recommended Model: Random Forest
+  - Reasoning: Highest F1-Score (0.9714) with strong ROC-AUC (0.9837)
+  - Cross-validation accuracy: 0.9086 ± 0.0379
 
 Top 3 Important Features:
-  1. net_overseas_migration_au: 0.3353
-  2. year_normalized: 0.1387
-  3. migration_lag2: 0.1202
+  1. year_normalized: 0.1943
+  2. migration_lag1: 0.1880
+  3. migration_lag2: 0.1680
 
 KEY FINDINGS
 ============
@@ -85,4 +85,4 @@ RECOMMENDATIONS FOR AUSTRALIAN POPULATION POLICY
    - Revalidate models annually or after major policy changes
    - Consider ensemble methods combining all 4 models for robustness
 
-Report Generated: 2026-05-26 23:23:02
+Report Generated: 2026-05-27 00:11:00
