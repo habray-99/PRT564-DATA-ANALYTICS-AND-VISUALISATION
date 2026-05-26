@@ -63,26 +63,5 @@ KEY FINDINGS
 4. Temporal features (year, quarter) improve model performance significantly
 5. Random Forest consistently outperforms other models in both tasks
 
-RECOMMENDATIONS FOR AUSTRALIAN POPULATION POLICY
-==================================================
-1. MIGRATION FORECASTING:
-   - Use the deployed Random Forest model for quarterly migration predictions
-   - Focus on monitoring lagged migration values as key indicators
-   - Seasonal patterns show clear quarterly fluctuations - adjust policy accordingly
 
-2. GROWTH PLANNING:
-   - Binary growth classification enables simpler policy decisions (expand/maintain infrastructure)
-   - Current model achieves 97.1% accuracy
-   - Can be deployed for strategic planning 2-3 quarters in advance
-
-3. DATA INSIGHTS:
-   - Natural increase shows strong temporal persistence - past values predict future values
-   - Geographic variation across states is significant - consider state-specific models
-   - Quarterly analysis is optimal compared to annual aggregation
-
-4. NEXT STEPS:
-   - Monitor model performance with real-time data
-   - Revalidate models annually or after major policy changes
-   - Consider ensemble methods combining all 4 models for robustness
-
-Report Generated: 2026-05-27 00:11:00
+Report Generated: 2026-05-27 02:36:15
